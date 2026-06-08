@@ -137,6 +137,39 @@ button{font-family:inherit}
   .jtop .hbtn{opacity:1}
 }
 
+/* ============ exhibitors ============ */
+.exintro{margin:18px 0 6px;color:var(--mut);font-size:14.5px;max-width:640px;line-height:1.7}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:24px;margin:18px 0;overflow:hidden;
+  transition:border-color .18s,box-shadow .18s;animation:rise .4s cubic-bezier(.21,.65,.36,1) both}
+.ex:hover{border-color:var(--line2);box-shadow:var(--shadow2)}
+.ex .shot{position:relative;aspect-ratio:21/9;background:#f2f2f4;overflow:hidden;border-bottom:1px solid var(--line)}
+.ex .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .4s}
+.ex:hover .shot img{transform:scale(1.02)}
+.ex .shot .stagechip{position:absolute;top:14px;left:14px;background:rgba(10,10,10,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:#fff;border-radius:999px;padding:5px 14px;font-size:11.5px;font-weight:800;letter-spacing:.04em}
+.ex .exbody{padding:24px 28px 26px}
+.ex .exhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ex .exhead h3{font-size:24px;font-weight:850;letter-spacing:-.03em;margin:0;display:block}
+.ex .extag{font-size:12.5px;font-weight:700;color:var(--acc);background:var(--accsoft);border-radius:999px;padding:4px 12px;letter-spacing:-.1px}
+.ex .visit{margin-left:auto;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;
+  padding:6px 15px;font-size:12.5px;font-weight:700;color:var(--ink);background:var(--card);cursor:pointer;text-decoration:none;transition:all .15s}
+.ex .visit:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ex .exone{margin:13px 0 4px;font-size:15.3px;line-height:1.72;color:var(--body)}
+.ex .exone b{background:var(--hl)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:16px 0}
+.fact{background:var(--card);padding:12px 15px 11px}
+.fact small{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut2);margin-bottom:3px}
+.fact span{font-size:13.2px;font-weight:600;line-height:1.5;letter-spacing:-.1px;color:var(--ink);display:block}
+.exfeats{margin:14px 0 4px;display:grid;gap:7px}
+.exfeat{display:flex;gap:10px;font-size:14px;line-height:1.65;color:var(--body)}
+.exfeat::before{content:"✓";flex:0 0 18px;height:18px;border-radius:6px;background:var(--accsoft);color:var(--acc);
+  font-size:11px;font-weight:800;display:grid;place-items:center;margin-top:3px}
+.exnote{margin-top:15px;border-left:3px solid var(--pin);background:var(--pinsoft);border-radius:0 12px 12px 0;
+  padding:10px 15px;font-size:13.2px;line-height:1.65;color:#6b5200}
+.exnote .relchip{margin-left:6px;vertical-align:1px}
+.exdisc{margin:22px 2px 0;font-size:11.8px;color:var(--mut2);line-height:1.6}
+@media (max-width:900px){.ex .exbody{padding:18px 17px 20px}.ex .shot{aspect-ratio:16/9}.ex .visit{margin-left:0}}
+
 /* ============ panel meta card ============ */
 .pmeta{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;margin:16px 0 4px;box-shadow:0 1px 2px rgba(0,0,0,.02)}
 .pmeta .row{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:5px 0}
@@ -374,6 +407,39 @@ const UI = {
       kicker:"3rd Annual Fashion Tech Summit · Deep Report", n:"No results",
       stats:[["$5T","Agentic commerce in 5–10 yrs (McKinsey)","m10"],["102 days","Wholesale order-to-ship window (JOOR)","m2"],["70%","of LTK sales happen in-app","m3"],["+50%","conversion lift from virtual try-on","m3"],["30%","of 150B garments/yr never sell","m8"],["45","new brands RTR customers try yearly","m7"]]}
 };
+/* ============ exhibitors data (booth intel, June 6 2026 + public sources) ============ */
+const EXH=[
+ {id:'veritas',name:'Veritas',url:'https://getveritas.com',stage:'Seed',tag:'Luxury authentication · custom microchips',
+  img:'https://getveritas.com/images/purse_tap.jpg',
+  one:'<b>“The trusted way to verify luxury.”</b> Custom-built, gem-sized NFC microchips embedded in luxury goods and linked to digital certificates — tap any smartphone on the item to verify authenticity in seconds.',
+  facts:[['Stage','Seed · $1.75M pre-seed, Feb 2026'],['Backers','Seven Seven Six (Alexis Ohanian) · Stanley Tang (DoorDash) · Josh Constine'],['Founder','Luci Holland — ex-Tesla technical PM & artist'],['Homebase','San Francisco (est.)'],['Headcount','~2–5, hiring'],['Edge','“Hack-proof” custom coil + bridge — tamper makes the chip go dormant']],
+  feats:['Invisible chip + digital product certificate per item; survives washing, can be inserted post-production','No app required — plain NFC tap; white-labeled brand dashboard; EU DPP ready','Backend monitors scanning behavior to flag fraud; blockchain digital twin of each product','Why now: counterfeits cost brands $30B+/yr while the $210B secondhand market has no reliable verification'],
+  note:'Booth note: positioned hard against off-the-shelf NFC tags (“easily bypassed with a Flipper Zero”) — selling trust as custom hardware.'},
+ {id:'tote',name:'Tote',url:'https://www.toteapp.io',stage:'Bootstrapped',tag:'Embedded AI shopping agent for brand sites',
+  img:'https://www.toteapp.io/landing/landing_search.png',
+  one:'<b>“Shopping guidance for every customer. Powered by AI.”</b> Tote embeds an in-store-style AI shopping assistant directly into a brand’s own website — preference learning, size & fit guidance, conversational discovery, and shopper-intent analytics.',
+  facts:[['Stage','Bootstrapped — no outside funding'],['CEO','Gordon'],['Homebase','San Francisco'],['Headcount','2'],['Traction','~20 brands — all word of mouth'],['Stack','Product runs on Gemini · built with Claude']],
+  feats:['Lives inside the brand webpage — no separate destination to drive traffic to','Each customer gets an assistant that learns preferences, life context and upcoming events','Smart discovery: natural-language + visual-similarity search beyond keywords','Helps brands label & structure product data for AI — started manual, now a purpose-built marking workflow'],
+  note:'Booth note: a 2-person team competing on conversion quality rather than headcount — distribution is entirely word of mouth.'},
+ {id:'maistyle',name:'MAIStyle',url:'https://www.maistyle.ai',stage:'Early stage',tag:'AI styling engine — archive in, campaign out',
+  img:'https://www.maistyle.ai/_assets/v11/c39cf959540526c4e08cbeedd10d9b19bae0cb11.png',
+  one:'<b>“The first AI Styling Engine for the fashion industry.”</b> B2B workflow: upload archive photos, copy and per-SKU white-background shots; MAIStyle organizes the library and generates on-model styled imagery, complete outfits, lookbooks, PDP, social and campaign visuals.',
+  facts:[['Stage','Early stage'],['Homebase','San Francisco + New York'],['Headcount','5'],['Stack','Built with Claude Code · 7B-param fashion model trained on 80M data points'],['Case study','RARE (IT): 300-SKU FW25 — 100× creative efficiency, 80–90% cost cut, <3-day cycles, +27% sales'],['Buyer','Big brands with deep archives — upload per SKU']],
+  feats:['Brand DNA engine learns from historical archives + real-time retail data','Bulk generation: outfit combinations, PDP assets, lookbooks, key visuals, social content','In-store associate app: one-click on-brand styling content for clienteling','Replaces 15–20-person, 4–8-week, $50–100k-per-season production cycles'],
+  note:'Booth note: the pitch lands on archives — fashion houses sit on decades of imagery that AI can finally activate, SKU by SKU.'},
+ {id:'air',name:'Air',url:'https://air.inc',stage:'Series B',tag:'Creative operations · AI-native DAM',
+  img:'https://a.storyblok.com/f/338771/1820x956/706e30d903/newsharecard.png/m/1200x630',
+  one:'<b>“Human creativity. AI scale.”</b> The system of record for creative work — organize, approve, multiply. AI auto-tags every asset on arrival, search works the way you remember things, and Canvas turns one approved asset into hundreds of channel variants.',
+  facts:[['Stage','Series B — $35M, Jan 2025 (led by Avenir Growth)'],['Total raised','$70M+'],['CEO','Shane Hegde (co-founder)'],['Homebase','New York City'],['Headcount','~70–100 (est.)'],['Scale','100K+ creatives · 2,100+ businesses']],
+  feats:['Creative Intelligence: auto tags, summaries and chapters — zero manual tagging','Conversational search: by color, object, face — “however you remember it”','Reviews & approvals: pinned comments, version stacking, Kanban status','Canvas: resize, reformat, adapt across every channel — 50+ AI models in one plan'],
+  note:'Floor relevance: answers the exact pain SSENSE named on the Modern Commerce panel — differentiated content for 500+ brands without 500 production teams.',rel:'m6'}
+];
+DATA.labels.exh={en:'Exhibitors',badge:'▣'};
+DATA.groups.splice(2,0,{id:'floor',label:{en:'EXPO FLOOR'},items:['exh']});
+DATA.en.sections.exh={id:'exh',title:'Exhibitors — Innovation Booths',html:'',sub:EXH.map(e=>({id:'ex-'+e.id,t:e.name,lvl:3})),hasLayers:false,meta:{}};
+EXH.forEach(e=>DATA.en.search.push({s:'exh',a:'ex-'+e.id,t:e.name+' — '+e.tag,
+  x:[e.name,e.tag,e.one.replace(/<[^>]+>/g,''),e.facts.map(f=>f.join(' ')).join(' · '),e.feats.join(' · '),e.note].join(' ')}));
+
 const ORDER = DATA.groups.flatMap(g=>g.items);
 let lang='en', active='home';
 let layerFilter=(()=>{try{return localStorage.getItem('fz_layer')||'all'}catch(e){return 'all'}})();
@@ -457,6 +523,20 @@ function renderContent(scroll=true){
         <div class="jbody"><div><p>${body}</p><div class="jrel">${rel.map(r=>`<button class="relchip" data-go="${r}">${label(r)} →</button>`).join('')}</div></div></div>
       </div>`;
     }).join('')+`</div>`;
+  }else if(active==='exh'){
+    h+=`<div class="titleblock"><div class="kicker">Expo Floor · Sensory Gallery</div><h1>Exhibitors — Innovation Booths</h1></div>
+    <p class="exintro">Startups met on the floor at The Glasshouse, June 6 2026. Each card: what they do, where they are, how they're funded, and the booth conversation that stuck.</p>`;
+    h+=EXH.map((e,i)=>`<div class="ex" id="ex-${e.id}" style="animation-delay:${i*0.05}s">
+      <div class="shot"><span class="stagechip">${esc(e.stage)}</span><img src="${e.img}" alt="${esc(e.name)} homepage" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
+      <div class="exbody">
+        <div class="exhead"><h3>${esc(e.name)}</h3><span class="extag">${esc(e.tag)}</span>
+          <a class="visit" href="${e.url}" target="_blank" rel="noopener">${e.url.replace(/^https?:\/\/(www\.)?/,'')} ↗</a></div>
+        <p class="exone">${e.one}</p>
+        <div class="facts">${e.facts.map(f=>`<div class="fact"><small>${esc(f[0])}</small><span>${esc(f[1])}</span></div>`).join('')}</div>
+        <div class="exfeats">${e.feats.map(f=>`<div class="exfeat">${esc(f)}</div>`).join('')}</div>
+        <div class="exnote">${esc(e.note)}${e.rel?`<button class="relchip" data-go="${e.rel}">${label(e.rel)} →</button>`:''}</div>
+      </div></div>`).join('');
+    h+=`<p class="exdisc">Sources: booth conversations (June 6, 2026), company sites, TechCrunch (Feb 2026), Axios/FinSMEs (Jan 2025). Funding and headcount figures are as reported or estimated; verify before external use.</p>`;
   }else{
     const L=DATA.labels[active]||{};
     h+=`<div class="titleblock"><div class="kicker">${L.time?('Panel · '+L.time):label(active)}</div><h1>${sec.title}</h1></div>`;
